@@ -1,6 +1,5 @@
-## Working nodejs authentication server
+## FreelancerWebsiteServer
 
-This is a handpicked, working, curated code for user authentication using nodejs with minimum possible code.
 
 ## Technologies used 
 
@@ -14,3 +13,4 @@ This is a handpicked, working, curated code for user authentication using nodejs
 | Mongoose Library | https://mongoosejs.com/ |
 | Body-parser Library | https://www.npmjs.com/package/body-parser/ |
 | Bcryptjs Library | https://www.npmjs.com/package/bcryptjs/ | 
+
