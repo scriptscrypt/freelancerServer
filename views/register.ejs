@@ -1,0 +1,16 @@
+<% include("./partials/head.ejs") %>
+<body>
+    <h1>Register</h1>
+
+    <form action="/register" method="POST">
+
+        <!-- <input type="text" name="nameFName" placeholder="First name"> -->
+        <input type="text" name="nameUsername" placeholder="Username">
+        <input type="email" name="nameEmail" placeholder="Email" required>
+        <input type="password" name="namePassword" placeholder="Password" required>
+        
+        <input type="submit"> 
+        
+    </form>
+
+</body>
