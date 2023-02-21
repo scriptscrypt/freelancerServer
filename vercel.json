@@ -4,9 +4,7 @@
       "src": "./server.js",
       "use": "@vercel/node"
     }],
-    "build":{
-      "command": "node server.js"
-    },
+    "buildCommand": "node server.js",
     "routes": [
       {
         "src": "/(.*)",
