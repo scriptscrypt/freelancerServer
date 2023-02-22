@@ -6,16 +6,16 @@ const session = require('express-session')
 
 //22Feb2023
 //For CSP
-const helmet = require('helmet');
 
-app.use(helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'none'"],
-      scriptSrc: ["'self'", "'unsafe-inline'"],
-      objectSrc: ["'none'"],
-      upgradeInsecureRequests: []
-    }
-  }));
+
+app.use(function (req, res, next) {
+  res.setHeader(
+    'Content-Security-Policy-Report-Only',
+    "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; frame-src 'self'"
+  );
+  next();
+});
+
 //22Feb2023
 
 
