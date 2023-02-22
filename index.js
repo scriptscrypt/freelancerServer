@@ -3,7 +3,22 @@ const app = express()
 const User = require("./models/modelUsersReg.js")
 const bcrypt = require('bcryptjs')
 const session = require('express-session') 
-  
+
+//22Feb2023
+//For CSP
+const helmet = require('helmet');
+
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: []
+    }
+  }));
+//22Feb2023
+
+
 //For parsing the inputs(input field data) from html to be called by server(res)
 const bodyParser = require("body-parser");
 // Mongoose - ORM 
