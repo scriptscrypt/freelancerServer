@@ -8,13 +8,24 @@ const session = require('express-session')
 //For CSP
 
 
-app.use(function (req, res, next) {
-  res.setHeader(
-    'Content-Security-Policy-Report-Only',
-    "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; style-src 'self'; frame-src 'self'"
-  );
-  next();
-});
+const helmet = require('helmet');
+
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ["'unsafe-inline'", "'unsafe-eval'"],
+        scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
+        objectSrc: ["'none'"],
+        styleSrc: ["'self'", "'unsafe-inline'"],
+        fontSrc: ["'self'"],
+        connectSrc: ["'self'"],
+        imgSrc: ["'self'", "data:", "blob:"],
+        mediaSrc: ["'self'"],
+        frameAncestors: ["'none'"],
+        formAction: ["'self'"],
+        upgradeInsecureRequests: []
+    }
+}));
+
 
 //22Feb2023
 
