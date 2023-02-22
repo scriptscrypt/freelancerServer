@@ -10,7 +10,7 @@ const helmet = require('helmet');
 
 app.use(helmet.contentSecurityPolicy({
     directives: {
-      defaultSrc: ["'self'"],
+      defaultSrc: ["'self'", "'unsafe-inline'"],
       scriptSrc: ["'self'", "'unsafe-inline'"],
       objectSrc: ["'none'"],
       upgradeInsecureRequests: []
