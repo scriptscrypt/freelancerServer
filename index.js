@@ -89,7 +89,7 @@ app.post("/register", async (req, res)=>{
     else if(nameEmail == User.findOne({modelEmail: nameEmail })) res.send("Email Exists already")
 
     //From models folder - modelUser.js file 
-    const user = new ColUsers({ 
+    const user = new User({ 
         modelUsername: nameUsername, 
         modelEmail: nameEmail, 
         modelPassword : hash,
@@ -136,7 +136,6 @@ app.post("/login", async (req, res)=>{
     // Error in comparing - serverVarUser.modelPassword returns first one in the document and failing to search for the input user's emailid 
     bcrypt.compare(namePassword, serverVarUser.modelPassword, function(err, result) {
         
-        if (err) { throw (err); }
         // res.send(result)    
         if(result === false){
             res.redirect("/login") 
@@ -145,8 +144,8 @@ app.post("/login", async (req, res)=>{
             req.session.userId = serverVarUser._id;
             res.redirect("/dashboard")
         }
+        if (err) { console.log(err); }
     });
-       
 })
  
 app.get("/dashboard", (req, res)=>{
